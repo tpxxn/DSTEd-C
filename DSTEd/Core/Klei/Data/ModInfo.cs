@@ -107,7 +107,10 @@ namespace DSTEd.Core.Klei.Data {
                         this.options = new List<Options>();
 
                         foreach (TablePair a in ((Table) values[key.String]).Pairs) {
-                            this.options.Add(new Options(a.Value.Table.Pairs));
+                            if (a.Value.Table != null)
+                            {
+                                this.options.Add(new Options(a.Value.Table.Pairs));
+                            }
                         }
                         break;
                         /* default:
